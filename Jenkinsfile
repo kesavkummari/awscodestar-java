@@ -7,7 +7,7 @@ pipeline {
     stages {
          stage('Stage-0 : Static Code Quality Using SonarQube') { 
              steps {
-                 sh 'mvn verify sonar:sonar' 
+                 sh 'mvn verify sonar:sonar -DskipTests' 
               }
           }
         stage('Stage-1 : Clean') { 
