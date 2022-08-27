@@ -12,6 +12,13 @@
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        
+        <!-- SonarQube Integration -->
+        <sonar.projectKey>kesavkummari-devops</sonar.projectKey>
+        <sonar.organization>kesavkummari-devops</sonar.organization>
+        <sonar.host.url>http://18.215.143.248:9000</sonar.host.url>
+        <sonar.login>sqp_f08c7900aed80fc68d36aa9b773f5d95b5cddf09</sonar.login>
+      
     </properties>
 
     <dependencies>
