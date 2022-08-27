@@ -19,7 +19,7 @@ phases:
       - unzip terraform_1.1.0_linux_amd64.zip
       - mv terraform /usr/local/bin
       - ls -lrt $CODEBUILD_SRC_DIR
-      - cd $CODEBUILD_SRC_DIR/terraform/
+      - cd $CODEBUILD_SRC_DIR/infra/
       - terraform -v 
       - echo "Configuring AWS Credentials"
       - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_PARAM
@@ -33,7 +33,7 @@ phases:
     commands:
       - echo "Executing Build Phase"
       - ls -lrt $CODEBUILD_SRC_DIR
-      - cd $CODEBUILD_SRC_DIR/terraform/
+      - cd $CODEBUILD_SRC_DIR/infra/
       - pwd
       - ls -lrta
       - terraform -v 
