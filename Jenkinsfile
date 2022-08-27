@@ -32,22 +32,22 @@ pipeline {
         }
         stage('Stage-5 : Install') { 
             steps {
-                sh 'mvn install -DskipTests'
+                sh 'mvn install'
             }
         }
         stage('Stage-6 : Verify') { 
             steps {
-                sh 'mvn verify -DskipTests'
+                sh 'mvn verify'
             }
         }
         stage('Stage-7 : Package') { 
             steps {
-                sh 'mvn package -DskipTests'
+                sh 'mvn package'
             }
         }
         stage('Stage-8 : Deploy an Artifact to Artifactory Manager i.e. Nexus/Jfrog') { 
             steps {
-                sh 'mvn deploy -DskipTests'
+                sh 'mvn deploy'
             }
         }
         stage('Stage-8 : Deployment - Deploy a Artifact cloudops-1.0.0.war file to Tomcat Server') { 
