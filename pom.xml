@@ -1,26 +1,59 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.aws.codestar.projecttemplates</groupId>
-    <artifactId>cloudops</artifactId>
-    <version>1.0</version>
-    <packaging>war</packaging>
-    <name>Sample Spring MVC Application Using AWS CodeStar</name>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <junit.platform.version>1.2.0</junit.platform.version>
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        
-        <!-- SonarQube Integration -->
-        <sonar.projectKey>kesavkummari-devops</sonar.projectKey>
-        <sonar.organization>kesavkummari-devops</sonar.organization>
-        <sonar.host.url>http://18.215.143.248:9000</sonar.host.url>
-        <sonar.login>sqp_f08c7900aed80fc68d36aa9b773f5d95b5cddf09</sonar.login>
-      
-    </properties>
+	<groupId>com.example</groupId>
+	<artifactId>cloudops</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
 
+	<name>CloudOps</name>
+	<description>CloudOps Java WebApplication Project</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.6.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+ 		<maven.compiler.target>1.8</maven.compiler.target>
+		<java.version>11</java.version>
+		<surefire.version>3.0.0-M7</surefire.version>
+		<jacoco.version>0.7.9</jacoco.version>
+		
+		<!-- SonarQube Integration 
+        <sonar.projectKey>devsecops</sonar.projectKey>
+        <sonar.organization>devsecops</sonar.organization>
+        <sonar.host.url>http://54.174.126.223:9000</sonar.host.url>
+        <sonar.login>537f683dd3e82a5e9bd02c4ae27169d3c60baae8</sonar.login>
+-->
+		        <!-- SonarQube Integration -->
+				<sonar.projectKey>kesavkummari-devops</sonar.projectKey>
+				<sonar.organization>kesavkummari-devops</sonar.organization>
+				<sonar.host.url>http://18.215.143.248:9000</sonar.host.url>
+				<sonar.login>sqp_f08c7900aed80fc68d36aa9b773f5d95b5cddf09</sonar.login>
+
+	</properties>
+	
+	<!-- Jfrog Integration with POM.xml file 
+<distributionManagement>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>jfrog.cloudbinary.io-snapshots</name>
+        <url>http://54.163.9.206:8081/artifactory/lib-cloudbinary-local/</url>
+    </snapshotRepository>
+    <repository>
+        <id>central</id>
+        <name>jfrog.cloudbinary.io-releases</name>
+        <url>http://54.163.9.206:8081/artifactory/lib-cloudbinary-local/</url>
+    </repository>
+</distributionManagement>
+	-->
 <!-- Jfrog Integration with POM.xml file -->
 <distributionManagement>
     <repository>
@@ -29,98 +62,93 @@
         <url>http://34.224.58.12:8081/artifactory/libs-release/</url>
     </repository>
 </distributionManagement>
-    
-    
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>5.0.7.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-fileupload</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+	
+	<scm>
+		<connection>scm:git:git@github.com:kesavkummari/javawebapp.git</connection>
+		<developerConnection>scm:git:git@github.com:kesavkummari/javawebapp.git</developerConnection>
+		<url>git@github.com:kesavkummari/javawebapp.git</url>
+		<tag>HEAD</tag>
+	</scm>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-war-plugin</artifactId>
-                    <version>3.2.2</version>
-                    <configuration>
-                        <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>ROOT</warName>
-                        <failOnMissingWebXml>false</failOnMissingWebXml>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.0</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.platform</groupId>
-                            <artifactId>junit-platform-surefire-provider</artifactId>
-                            <version>${junit.platform.version}</version>
-                        </dependency>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit.jupiter.version}</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <finalName>ROOT</finalName>
-    </build>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
+		</dependency>
+<!--		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+		</dependency> 
+-->
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<tagNameFormat>v@{project.version}</tagNameFormat>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+				</configuration>
+			</plugin>
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-surefire-plugin</artifactId>
+			  <version>${surefire.version}</version><!--$NO-MVN-MAN-VER$-->
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+        	</plugin>
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>${jacoco.version}</version>
+			    <executions>
+			        <execution>
+			            <id>default-prepare-agent</id>
+			            <goals><goal>prepare-agent</goal></goals>
+			        </execution>
+			        <execution>
+			            <id>default-report</id>
+			            <phase>prepare-package</phase>
+			            <goals><goal>report</goal></goals>
+			        </execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
