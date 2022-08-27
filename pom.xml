@@ -21,6 +21,16 @@
       
     </properties>
 
+<!-- Jfrog Integration with POM.xml file -->
+<distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>libs-release</name>
+        <url>http://34.224.58.12:8081/artifactory/libs-release/</url>
+    </repository>
+</distributionManagement>
+    
+    
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
