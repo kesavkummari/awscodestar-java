@@ -102,11 +102,11 @@ sudo systemctl enable tomcat.service
 # Restart the Jenkins Daemon/Service 
 sudo systemctl restart tomcat.service
 
-aws s3 cp s3://kesavkummari-s3/staragile.zip /opt/tomcat/webapps/
+aws s3 cp s3://kesavkummari-s3/staragileops.zip /opt/
 
-unzip /opt/tomcat/webapps/staragile.zip /opt/tomcat/webapps/
+unzip /opt/staragileops.zip 
 
-ls -lrt /opt/tomcat/webapps/cloudops-1.0.war
+cp -pvr /opt/staragileops/target/ROOT.war /opt/tomcat/webapps/
 
 # Usig Process Status Command 
 # ps -aux | grep tomcat 
