@@ -7,7 +7,7 @@ pipeline {
     stages {
          stage('Stage-0 : Static Code Quality Using SonarQube') { 
              steps {
-                 sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kesavkummari-devops' 
+                 sh 'mvn verify sonar:sonar' 
               }
           }
         stage('Stage-1 : Clean') { 
